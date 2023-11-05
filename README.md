@@ -1,1 +1,2 @@
 # usd-allmanys-curs
+# forexiol

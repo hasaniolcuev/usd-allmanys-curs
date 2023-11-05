@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+
+
+  <div class="main">
+
+    <video src="IOLCHUEV EX.mp4"  autoplay muted loop></video>
+  
+
+
+
+<div class="form-box">
+
+
+<div class="button-box">
+  <div id="btn"></div>
+  <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+  <button type="button" class="toggle-btn" onclick="register()">Sing In</button>
+</div>
+
+
+<div class="social-icons">
+<a href="https://www.facebook.com/hasan.iolcuev.3?mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
+  <a href="https://twitter.com/HIolcuev"><i class="fa-brands fa-twitter"></i></a>
+  <a href="https://www.instagram.com/hiolcuev/"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://www.youtube.com/@HasanVD007/featured"><i class="fa-brands fa-youtube"></i></a>
+</div>
+
+<form id="Login"
+class="input-group">
+<input type="text" class="input-field" placeholder="Enter USER Name" required>
+<input type="password" class="input-field" placeholder="Enter Password" required>
+<a href="#">Lost Your Password</a>
+<button type="submit" class="submit-btn"><a href="r.html">Log In</a></button>
+</form>
+
+<form  id="Register" class="input-group">
+  <input type="text" class="input-field" placeholder="Enter USER Name" required>
+  <input type="password" class="input-field" placeholder="Enter Password" required>
+  <input type="email" class="input-field" placeholder="Enter Email" required>
+
+  <a href="#">By sing in , you agree to the terms, data policy and cookies policy </a>
+  <button type="submit" class="submit-btn"><a href="r.html">sing Up</a></button>
+  </form>
+
+
+
+
+
+</div>
+  </div>
+
+
+
+  
+
+
+<script>
+
+var x=document.getElementById("Login");
+var v=document.getElementById("Register");
+var y=document.getElementById("btn");
+
+function register(){
+  x.style.left= "-400px";
+  v.style.left= "50px";
+   y.style.left= "110px";
+}
+
+
+function login(){
+  x.style.left= "50px";
+  v.style.left= "450px";
+   y.style.left= "0px";
+}
+
+
+
+
+
+
+</script>
+
+
+
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  
+  a{
+    color: black;
+  }
+  
+  .main video{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    object-fit: cover;
+  
+  }
+  
+  
+  .form-box{
+    width: 380px;
+    height: 480px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.842);
+    box-shadow: 0 0 20px 9px #6865641e;
+    border-radius: 35px;
+    margin: 6% auto;
+    padding: 10px ;
+  overflow: hidden;
+  
+  }
+  
+  
+  .button-box{
+    width: 220px;
+    height: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #220d052a;
+    border-radius: 35px;
+    margin: 40px 70px;
+  
+  }
+  
+  .toggle-btn{
+    position: relative;
+    padding: 10px 30px;
+    border: none;
+    background: transparent;
+    outline: none;
+  font-size: 13px;
+  font-weight: bolder;
+  cursor:pointer ;
+  
+  }
+  
+  #btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background:blue ;
+    width: 110px;
+    border-radius: 35px;
+    transition: .5s;
+    
+  
+  }
+  
+  
+  
+  .button-box button:nth-child(2){
+    color: #fff;
+  
+  }
+  
+  
+  .social-icons{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+  
+  }
+  .social-icons i{
+   
+     
+    
+  
+   margin: 10px 10px;
+    cursor: pointer;
+    border: none;
+    background: rgba(255, 255, 255, 0.842) ;
+    border-radius: 35px;
+  }
+  
+  
+  
+  
+  
+  .input-group{
+    position: absolute;
+  top: 180px;
+  width: 280px;
+  transition: .5s;
+  color: #fff;
+  
+  
+  }
+
+#Login  a{
+  color: rgb(0, 0, 0);
+}
+
+#Register  a{
+  color: rgb(0, 0, 0);
+ 
+}
+
+  
+  .input-field{
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    margin: 5px 0;
+    background: transparent;
+  border-bottom:1px solid rgba(153 , 153 , 153, 0.705);
+  outline: none;
+  
+  
+  }
+  
+  .submit-btn{
+    display: block;
+    width: 85%;
+    padding: 10px;
+    border: none;
+    background: blue;
+    border-radius: 35px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    margin: auto;
+    outline: none;
+  
+  }
+  
+  
+  .input-group a{
+    display: inline-block;
+    text-decoration: none;
+    margin: 10px 10px 10px 0px;
+    color: #f0ecec;
+    font-size: 12px;
+  
+  
+  }
+  
+  
+  
+  #Login{
+    left: 50px;
+  
+  }
+  #Register{
+    left: 450px;
+   
+  }
+</style>
+
+</body>
+</html>

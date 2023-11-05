@@ -1,17 +1,335 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Para Birimi Dönüştürücü</title>
+    <title>Döviz Çevirici</title>
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<header>
+<div class="logo">
+
+  <img src="IOLCHUEV.png" alt="">
+</div>
+
+
+
+<h1>DOLAR EXCHANGE $</h1>
+
+
+
+
+<div class="menu">
+  <button><a href="kayıt.html"><i class="fa-solid fa-right-to-bracket"></i></a></button>
+  
+  <button><a href="sorun.html"><i class="fa-solid fa-compass"></i></a></button>
+  <button><a href="profil.html"><i class="fa-solid fa-gears"></i></a></button>
+
+</div>
+
+
+
+
+</header>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+a{
+
+  color: black;
+
+
+
+
+}
+
+
+header .menu button{
+  color: #fff;
+  border: none;
+  background-color: #fff;
+  
+}
+
+
+header{
+
+  display: flex;
+  gap: 400px;
+  border-bottom:  groove;
+
+  
+}
+
+
+header .logo img{
+  height: 150px;
+  width: 150px;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+
+input, select {
+    width: 200px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+#sonuc {
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.usd input{
+
+  margin-left: 20px;
+  border-radius: 0;
+  padding: 0px 10px;
+}
+
+
+.container1 input{
+ margin: 0;
+
+
+}
+
+.container1{
+margin-top: 50px;
+border-radius: 10px;
+border-style: groove;
+}
+
+
+</style>
+
+
+
+
+    <script>
+        async function convertCurrency() {
+            const url = 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/latest?from=USD';
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'ed5aa96d52mshb8792eb7c052a19p18f5b2jsn02695cc6ea17',
+                    'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const data = await response.json();
+
+                const rates = data.rates;
+                const amount = parseFloat(document.getElementById("amount").value);
+                const fromCurrency = document.getElementById("fromCurrency").value;
+                const toCurrency = document.getElementById("toCurrency").value;
+
+                const conversionRate = rates[toCurrency] / rates[fromCurrency];
+                const convertedAmount = amount * conversionRate;
+
+                const resultContainer = document.getElementById("resultContainer");
+                resultContainer.textContent = `${amount} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
+</head>
+<body>
+  <div class="container1">
+
+    <h1>Döviz Çevirici</h1>
+    <label for="amount">Miktar:</label>
+    <input type="number" id="amount" min="0">
+    <label for="fromCurrency">Dönüştürülecek Para Birimi:</label>
+    <select id="fromCurrency">
+       
+        <option value="TRY">Turkish Lira</option>
+        <option value="EUR">Euro</option>
+        <option value="GBP">British Pound Sterling</option>
+        <option value="USD">United States Dollar</option>
+        <option value="AED">United Arab Emirates Dirham</option>
+        <option value="ARS">Argentine Peso</option>
+        <option value="AUD">Australian Dollar</option>
+        <option value="BGN">Bulgarian Lev</option>
+        <option value="BRL">Brazilian Real</option>
+        <option value="BSD">Bahamian Dollar</option>
+        <option value="CAD">Canadian Dollar</option>
+        <option value="CHF">Swiss Franc</option>
+        <option value="CLP">Chilean Peso</option>
+        <option value="CNY">Chinese Yuan</option>
+        <option value="COP">Colombian Peso</option>
+        <option value="CZK">Czech Koruna</option>
+        <option value="DKK">Danish Krone</option>
+        <option value="DOP">Dominican Peso</option>
+        <option value="EGP">Egyptian Pound</option>
+        <option value="FJD">Fijian Dollar</option>
+        <option value="GTQ">Guatemalan Quetzal</option>
+        <option value="HKD">Hong Kong Dollar</option>
+        <option value="HRK">Croatian Kuna</option>
+        <option value="HUF">Hungarian Forint</option>
+        <option value="IDR">Indonesian Rupiah</option>
+        <option value="ILS">Israeli New Shekel</option>
+        <option value="INR">Indian Rupee</option>
+        <option value="JPY">Japanese Yen</option>
+        <option value="KRW">South Korean Won</option>
+        <option value="KZT">Kazakhstani Tenge</option>
+        <option value="MXN">Mexican Peso</option>
+        <option value="MYR">Malaysian Ringgit</option>
+        <option value="NOK">Norwegian Krone</option>
+        <option value="NZD">New Zealand Dollar</option>
+        <option value="PAB">Panamanian Balboa</option>
+        <option value="PEN">Peruvian Sol</option>
+        <option value="PHP">Philippine Peso</option>
+        <option value="PKR">Pakistani Rupee</option>
+        <option value="PLN">Polish Złoty</option>
+        <option value="PYG">Paraguayan Guarani</option>
+        <option value="RON">Romanian Leu</option>
+        <option value="RUB">Russian Ruble</option>
+        <option value="SAR">Saudi Riyal</option>
+        <option value="SEK">Swedish Krona</option>
+        <option value="SGD">Singapore Dollar</option>
+        <option value="THB">Thai Baht</option>
+        <option value="TWD">New Taiwan Dollar</option>
+        <option value="UAH">Ukrainian Hryvnia</option>
+        <option value="UYU">Uruguayan Peso</option>
+        <option value="ZAR">South African Rand</option>
+        <!-- Diğer para birimlerini buraya ekleyebilirsiniz -->
+    </select>
+    <label for="toCurrency">Dönüştürülecek Para Birimi:</label>
+    <select id="toCurrency">
+        
+        <option value="TRY">Turkish Lira</option>
+        <option value="EUR">Euro</option>
+        <option value="GBP">British Pound Sterling</option>
+        <option value="USD">United States Dollar</option>
+        <option value="AED">United Arab Emirates Dirham</option>
+        <option value="ARS">Argentine Peso</option>
+        <option value="AUD">Australian Dollar</option>
+        <option value="BGN">Bulgarian Lev</option>
+        <option value="BRL">Brazilian Real</option>
+        <option value="BSD">Bahamian Dollar</option>
+        <option value="CAD">Canadian Dollar</option>
+        <option value="CHF">Swiss Franc</option>
+        <option value="CLP">Chilean Peso</option>
+        <option value="CNY">Chinese Yuan</option>
+        <option value="COP">Colombian Peso</option>
+        <option value="CZK">Czech Koruna</option>
+        <option value="DKK">Danish Krone</option>
+        <option value="DOP">Dominican Peso</option>
+        <option value="EGP">Egyptian Pound</option>
+        <option value="FJD">Fijian Dollar</option>
+        <option value="GTQ">Guatemalan Quetzal</option>
+        <option value="HKD">Hong Kong Dollar</option>
+        <option value="HRK">Croatian Kuna</option>
+        <option value="HUF">Hungarian Forint</option>
+        <option value="IDR">Indonesian Rupiah</option>
+        <option value="ILS">Israeli New Shekel</option>
+        <option value="INR">Indian Rupee</option>
+        <option value="JPY">Japanese Yen</option>
+        <option value="KRW">South Korean Won</option>
+        <option value="KZT">Kazakhstani Tenge</option>
+        <option value="MXN">Mexican Peso</option>
+        <option value="MYR">Malaysian Ringgit</option>
+        <option value="NOK">Norwegian Krone</option>
+        <option value="NZD">New Zealand Dollar</option>
+        <option value="PAB">Panamanian Balboa</option>
+        <option value="PEN">Peruvian Sol</option>
+        <option value="PHP">Philippine Peso</option>
+        <option value="PKR">Pakistani Rupee</option>
+        <option value="PLN">Polish Złoty</option>
+        <option value="PYG">Paraguayan Guarani</option>
+        <option value="RON">Romanian Leu</option>
+        <option value="RUB">Russian Ruble</option>
+        <option value="SAR">Saudi Riyal</option>
+        <option value="SEK">Swedish Krona</option>
+        <option value="SGD">Singapore Dollar</option>
+        <option value="THB">Thai Baht</option>
+        <option value="TWD">New Taiwan Dollar</option>
+        <option value="UAH">Ukrainian Hryvnia</option>
+        <option value="UYU">Uruguayan Peso</option>
+        <option value="ZAR">South African Rand</option>
+        <!-- Diğer para birimlerini buraya ekleyebilirsiniz -->
+    </select>
+
+    <button onclick="convertCurrency()">Dönüştür</button>
+
+    <h2>Dönüşüm Sonucu:</h2>
+    <div id="resultContainer"></div>
+  </div>
+</body>
+</html>
+
+<!--ikinci-->
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+<br>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ 
   <link rel="stylesheet" type="text/css" href="style.css">
   <style>
-    .clear-icon {
+
+
+    .clear-icon{
       display: none;
       cursor: pointer;
     }
+
   </style>
 </head>
 <body>
-  <h1>Para Birimi Dönüştürücü</h1>
+ 
 
   <div id="search-container">
     <input type="text" id="search-input" placeholder="Arama yapın...">
@@ -35,7 +353,7 @@
 
   <script src="script.js"></script>
   <script>
-    const apiUrl = 'https://api.exchangerate-api.com/v4/latest/USD';
+    const apiUrl = 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/latest?from=USD';
     const table = document.getElementById('exchange-rates');
     const refreshInterval = 1000; // Yenileme süresi (milisaniye cinsinden), burada 1 saniye olarak ayarlanmıştır
 
@@ -73,6 +391,11 @@
           return 'https://img.icons8.com/color/48/great-britain-circular.png';
         case 'AZN':
           return 'https://img.icons8.com/color/48/azerbaijan-circular.png';
+
+          case 'TRY':
+          return 'https://img.icons8.com/color/48/canada-circular.png';
+
+          
         // Diğer ülkeler ve bayraklar buraya eklenebilir
         default:
           return ''; // Bayrak bulunamadığında boş bir değer döndürülür
@@ -89,7 +412,11 @@
 
     // İlk keJavaScript kodunun devamı:
 
-html
+
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // İlk kez çalıştır
     fetchExchangeRates();
 
@@ -144,6 +471,108 @@ html
         searchCurrency(lastSearch);
       }
     });
-  </script>
+
+
+
+
+
+
+
+   </script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--gece gunduz modu-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gece Gündüz Modu</title>
+    
+</head>
+<body>
+  
+    <button id="geceGunduzButton" onclick="toggleMod()">Gece / Gündüz</button>
+
+    <style>
+body {
+    background-color: #fff; /* varsayılan arka plan rengi */
+    color: #000; /* varsayılan metin rengi */
+    transition: background-color 0.5s, color 0.5s; /* geçiş efekti için süre ayarı */
+}
+
+.geceModu {
+    background-color: #000; /* gece modunda arka plan rengi */
+    color: #fff; /* gece modunda metin rengi */
+}
+    </style>
+
+    <script >
+
+function toggleMod() {
+    var body = document.body;
+    body.classList.toggle("geceModu");
+}
+    </script>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
